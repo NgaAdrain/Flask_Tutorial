@@ -13,6 +13,8 @@
 </head>
 <body>
     {% include 'includes/_navbar.html' %}
+    {% block body %} <!-- 객체가 들어갈 블록을 안내 -->
+    {% endblock %} <!-- 블록 끝을 설정 -->
     <div id="Container">
         <input id="NewProb" type="button" value="문제 생성 " />
         <input id="LoadProb" type="button" value="전체 문제 출력" />

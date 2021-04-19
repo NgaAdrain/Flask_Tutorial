@@ -1,0 +1,33 @@
+{% extends 'layout.html'%}
+{% block body %}
+    <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: left;
+    }
+    </style>
+    <table class="table" style="width:100%">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>DETAIL</th>
+        <th>AUTHOR</th>
+        <th>DATE</th>
+        <th>EDIT</th>
+    </tr>
+    </thead>
+    <tbody>
+        <th>{{article.id}}</th>
+        <td>{{article.title}}</td>
+        <td>{{article.body}}</td>
+        <td>{{article.author}}</td>
+        <td>{{article.create_date}}</td>
+        <td>edit</td>
+    </tbody>
+    </table>
+{% endblock %} 

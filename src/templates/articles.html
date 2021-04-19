@@ -1,1 +1,53 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+{% block body %}<!-- layouts.html의 body block에 출력-->
+<h1 class="display-4">Articles</h1><hr>
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: left;
+    }
+    </style>
+<!--
+<p class="lead">{{articles[0]}}</p><hr>
+<p class="lead">{{articles[1]}}</p><hr>
+<p class="lead">{{articles[2]}}</p><hr>
+-->
+<table class="table" style="width:100%">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>description</th>
+        <th>AUTHOR</th>
+        <th>DATE</th>
+        <th>EDIT</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for article in articles %}
+    <tr>
+        <th>{{article.id}}</th>
+        <td><a href="articles/{{article.id}}">{{article.title}}</a></td>
+        <td>{{article.body[0:70]}}...</td>
+        <td>{{article.author}}</td>
+        <td>{{article.create_date}}</td>
+        <td><a href="articles/{{article.id}}">edit</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+<!--
+<ul class="list-group"> {% for article in articles %}
+<li class="list-group-item">
+<a href="articles/{{article.id}}">{{article.title}}</a>
+</li>
+{% endfor %}
+</ul>
+-->
+<hr class="my-4">
+<a class="btn btn-warning btn-success" href="/" role="button">??</a>
+{% endblock %} <!-- 블록의 끝-->

@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template #이거 있어야 render가능!
+from data import Articles
 
 app = Flask(__name__)
 app.debug = True #개발 때 만
@@ -30,8 +31,17 @@ def index_3():
     return render_template('coverviewer.html')
 
 @app.route('/articles', methods=['GET'])
-def articles():
-    return render_template('articles.html')
+def articles(): 
+    articles = Articles()
+    return render_template('articles.html',articles = articles)
+
+@app.route('/articles/<string:id>/')
+def article(id):
+    articles = Articles()
+    for article in articles:
+        if article['id'] == int(id):
+            return render_template('article.html',article = article)
+    return render_template('article.html',id = id)
 
 if __name__ == '__main__':
     app.run()
