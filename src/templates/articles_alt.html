@@ -1,0 +1,77 @@
+{% extends "layouts.html" %} <!-- layout.html-->
+{% block body %}
+    <div class="jumbotron text-center">
+    <h1 class="display-4">ARTICLES PAGE</h1>
+    <p class="lead">This Application is build using by python and Flask Framework</p>
+    <hr class="my-4">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">title</th>
+            <th scope="col">description</th>
+            <th scope="col">author</th>
+            <th scope="col">DATE</th>
+            <th scope="col">EDIT</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+          <tr>
+            <th scope="row">{{ article['id'] }}</th>
+            <td>{{ article['title'] }}</td>
+            <td>{{ article['body'] }}</td>
+            <td>{{ article['author'] }}</td>
+            <td>{{ article['create_date'] }}</td>
+            <td><button type="button" class="btn btn-danger">Edit</button></td>
+          </tr>
+           {% endfor %}
+        </tbody>
+      </table>
+      <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            DataTable Example
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>TITLE</th>
+                            <th>DESCRIPTION</th>
+                            <th>AUTHOR</th>
+                            <th>DATE</th>
+                            <th>EDIT</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>TITLE</th>
+                            <th>DESCRIPTION</th>
+                            <th>AUTHOR</th>
+                            <th>DATE</th>
+                            <th>EDIT</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                      {% for article in articles %}
+                        <tr>
+                          <th scope="row">{{ article['id'] }}</th>
+                          <td>{{ article['title'] }}</td>
+                          <td>{{ article['body'] }}</td>
+                          <td>{{ article['author'] }}</td>
+                          <td>{{ article['create_date'] }}</td>
+                          <td><button type="button" class="btn btn-danger">Edit</button></td>
+                        </tr>
+                    {% endfor %}
+                      </tbody>
+                    </table>
+                    </div>
+                    </div>
+                    </div>
+    <a class="btn btn-warning btn-lg" href="#" role="button">Learn more</a>
+  </div>
+{% endblock %}
