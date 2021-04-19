@@ -29,5 +29,9 @@ def index_2():
 def index_3():
     return render_template('coverviewer.html')
 
+@app.route('/articles', methods=['GET'])
+def articles():
+    return render_template('articles.html')
+
 if __name__ == '__main__':
     app.run()

@@ -8,9 +8,11 @@
     <meta charset="utf-8" />
     <title>Problem 03</title>
     <!--<link rel="stylesheet" href="Prob03.css" type="text/css" />-->
-    <script src="{{url_for('static', filename='Prob03.js')}}" charset='utf-8'></script>
+    <script src="{{url_for('static', filename='Question.js')}}"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+    {% include 'includes/_navbar.html' %}
     <div id="Container">
         <input id="NewProb" type="button" value="문제 생성 " />
         <input id="LoadProb" type="button" value="전체 문제 출력" />
