@@ -1,0 +1,47 @@
+{% extends "layouts_yellow.html" %}
+{% block body %}
+<h1 class="display-4">ARTICLES PAGE</h1>
+<p class="lead">This is articles page. To see the detailed description, click the title.</p>
+<hr class="my-4">
+<a class="btn btn-warning btn-lg" href="/" role="button">to HOME</a>
+<a class="btn btn-warning btn-lg" href="/about" role="button">to ABOUT</a>
+<p></p>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Articles
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>TITLE</th>
+                        <th>DESCRIPTION</th>
+                        <th>AUTHOR</th>
+                        <th>DATE</th>
+                        <th>EDIT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {% for article in articles %}
+                    <tr>
+                      <th scope="row">{{ article[0] }}</th>
+                      <td><a href="/article/{{article[0]}}">{{ article[1] }}</a></td>
+                      <td><a>{{ article[2][0:40] }}...</a></td>
+                      <td><a>{{ article[3] }}</a></td>
+                      <td><a>{{ article[4] }}</a></td>
+                      <td><button type="button" class="btn btn-danger">Edit</button></td>
+                    </tr>
+                {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <a class="btn btn-success btn-md" href="/add_articles" role="button">ADD</a>
+            
+        </div>
+    </div>
+    
+{% endblock %}

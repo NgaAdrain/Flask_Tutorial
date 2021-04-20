@@ -22,13 +22,14 @@
     </tr>
     </thead>
     <tbody>
-        <th>{{article.id}}</th>
-        <td>{{article.title}}</td>
-        <td>{{article.body}}</td>
-        <td>{{article.author}}</td>
-        <td>{{article.create_date}}</td>
-        <td>edit</td>
+        <th>{{article[0]}}</th>
+        <td>{{article[1]}}</td>
+        <td>{{article[2]}}</td>
+        <td>{{article[3]}}</td>
+        <td>{{article[4]}}</td>
+        <td><button type="button" class = "btn btn-success">edit</button></td>
     </tbody>
     </table>
     <a class="btn btn-success btn-lg" href="/" role="button">Home</a>
+    <a class="btn btn-success btn-lg" href="/articles" role="button">Prev</a>
 {% endblock %} 

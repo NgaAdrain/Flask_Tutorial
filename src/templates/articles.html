@@ -30,12 +30,19 @@
     <tbody>
     {% for article in articles %}
     <tr>
-        <th>{{article.id}}</th>
-        <td><a href="articles/{{article.id}}">{{article.title}}</a></td>
-        <td>{{article.body[0:70]}}...</td>
-        <td>{{article.author}}</td>
-        <td>{{article.create_date}}</td>
-        <td><a href="articles/{{article.id}}">edit</a></td>
+        <th>{{article[0]}}</th>
+        <td><a href="/articles/{{article[0]}}">{{article[1]}}</a></td>
+        <td><a>{{ article[2][0:40] }}...</a></td>
+        <td><a>{{ article[3] }}</a></td>
+        <td><a>{{ article[4] }}</a></td>
+        <td>
+          <button type="button" class = "btn btn-success" href = "/articles/{{article[0]}}">edit</button>
+          <br>
+          <br>
+          <form action="/del_articles/{{article[0]}}" method="POST" onsubmit="return confirm('삭제 하시겠읍니까?')">
+            <button type="submit" class = "btn btn-danger">DEL</button>
+          </form>
+        </td>
     </tr>
     {% endfor %}
     </tbody>
@@ -50,4 +57,5 @@
 -->
 <hr class="my-4">
 <a class="btn btn-success btn-lg" href="/" role="button">HOME?</a>
+<a class="btn btn-success btn-lg" href="/add_articles" role="button">ADD?</a>
 {% endblock %} <!-- 블록의 끝-->

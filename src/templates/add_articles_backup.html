@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1 class="display-4">ARTICLES PAGE</h1>
+<p class="lead">This is detailed article page.</p>
+<hr class="my-4">
+<!--    <a class="btn btn-warning btn-lg" href="/" role="button">to HOME</a>
+<a class="btn btn-warning btn-lg" href="/articles" role="button">go BACK</a>    -->
+<p></p>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Please Enter Belows
+    </div>
+    <div class="card-body">
+        <div class="table-responsive"> 
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>TITLE</th>
+                        <th>DESCRIPTION</th>
+                        <th>AUTHOR</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- input form usage-->
+                    <form action = "/add_articles", method="POST">
+                        <tr>
+                            <td><input type="text" name="Title" placeholder="Enter Title" required></td>
+                            <td><input type="text" name="Desc" placeholder="Enter Description" required></td>
+                            <td><input type="text" name="Author" placeholder="Enter Author" required></td>
+                        </tr>
+                        <input type="submit" class="btn btn-success" value = "Submit"></button>
+                        <a class="btn btn-danger btn-md" href="/articles" role="button">CANCEL</a>
+                    </form>
+                    
+                    </tbody>
+                </table>
+            
+            </div>
+    </div>
+{% endblock %}
