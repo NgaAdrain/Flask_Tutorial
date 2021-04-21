@@ -32,7 +32,8 @@
     <tr>
         <td><input type="text" name="ID" value={{article[0]}} disabled></td>
         <td><input type="text" name="Title" value={{article[1]}} required></td>
-        <td><input type="text" name="Description" value={{article[2]}} required></td>
+        <td><textarea name="Description" placeholder="input your description" required>
+            {{article[2]}}</textarea></td>
         <td><input type="text" name="Author" value={{article[3]}} disabled></td>
         <td><input type="text" name="DATE" value={{article[4]}} disabled></td>
         <td><input type="submit" value="수정하기"></td>

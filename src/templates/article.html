@@ -27,7 +27,10 @@
         <td>{{article[2]}}</td>
         <td>{{article[3]}}</td>
         <td>{{article[4]}}</td>
-        <td><button type="button" class = "btn btn-success">edit</button></td>
+        <td><form action="/articles/edit/{{article[0]}}" method="GET">
+            <button type="submit" class = "btn btn-success">EDIT</button>
+            </form>
+        </td>
     </tbody>
     </table>
     <a class="btn btn-success btn-lg" href="/" role="button">Home</a>

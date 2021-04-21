@@ -1,0 +1,36 @@
+{% extends 'layout.html'%}
+
+{% block body %}
+
+<h1 class="display-4">LOGIN</h1>
+<p class="lead">Match from database.</p>
+<hr class="my-4">
+
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Writing Lists Board</h4>
+            <p class="mb-30">Input your Words !!</p>
+        </div>
+        
+    </div>
+    <form action="/login" method="POST">
+        <div class="form-group">
+            <label>ID</label>
+            <input type="text" name='U_Name' placeholder="input your ID" required>
+        </div>
+
+        <div class="form-group">
+            <label>PASSWORD</label>
+            <input type="password" name='PSWD' required>
+            
+        </div>
+        <div class="form-group">
+            <input class="btn btn-warning btn-lg btn-block" type="submit" value="로그인" >
+        </div>
+        <div class="form-group">
+            <a class="btn btn-primary btn-lg btn-block" href="/register"> 회원가입</a>
+        </div>
+    </form>
+</div>
+{% endblock %} <!-- 블록의 끝-->

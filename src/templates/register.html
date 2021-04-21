@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block body %}
+<script>
+    function try_regist(){
+        var loginForm = document.login_form;
+        var ps_1 = loginForm.PSWD.value;
+        var ps_2 = loginForm.PSWD_chk.value;
+        if(ps_1 != ps_2){
+            alert('아 비번 다르잖아 ㅡㅡ;; 다시해');
+        }
+        else{
+            loginForm.submit();
+        }
+    }
+</script>
+
+<h1 class="display-4">REGISTER</h1>
+<p class="lead">REGISTER to Database.</p>
+<hr class="my-4">
+<!--    <a class="btn btn-warning btn-lg" href="/" role="button">to HOME</a>
+<a class="btn btn-warning btn-lg" href="/articles" role="button">go BACK</a>    -->
+<p></p>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Please Enter Belows
+    </div>
+    <div class="card-body">
+        <div class="table-responsive"> 
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>USERNAME</th>
+                        <th>PASSWORD</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- input form usage-->
+                    <form name = "login_form" action = "/register", method="POST">
+                        <tr>
+                            <td><input type="text" name="Name" placeholder="Enter NAME" required></td>
+                            <td><input type="email" name="Email" placeholder="Enter Email" required></td>
+                            <td><input type="text" name="U_Name" placeholder="Enter Username" required></td>
+                            <td><input type="password" name="PSWD" placeholder="Enter Password" required></td>
+                            <td><input type="password" name="PSWD_chk" placeholder="Enter same Password" required></td>
+                        </tr>
+                        <input type="button" onclick = "try_regist()" class="btn btn-success" value = "Submit"></button>
+                        <a class="btn btn-danger btn-md" href="/data/test" role="button">CANCEL</a>
+                    </form>
+                    
+                    </tbody>
+                </table>
+            
+            </div>
+    </div>
+{% endblock %}
