@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block body %}
+<style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 5px;
+      text-align: left;
+    }
+</style>
+
+<h1 class="display-4">EDIT PAGE</h1>
+<p class="lead">Edit Selected Article</p>
+<hr class="my-4">
+
+<table class="table" style="width:100%">
+    <thead class="thead-dark">
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>DETAIL</th>
+        <th>AUTHOR</th>
+        <th>DATE</th>
+        <th>EDIT</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 수정 파트-->
+    <form action="/articles/edit/{{article[0]}}" method="POST" onsubmit="return confirm('수정 OK?')"> 
+    <tr>
+        <td><input type="text" name="ID" value={{article[0]}} disabled></td>
+        <td><input type="text" name="Title" value={{article[1]}} required></td>
+        <td><input type="text" name="Description" value={{article[2]}} required></td>
+        <td><input type="text" name="Author" value={{article[3]}} disabled></td>
+        <td><input type="text" name="DATE" value={{article[4]}} disabled></td>
+        <td><input type="submit" value="수정하기"></td>
+    </tr>
+</form>
+<!--
+{% for article in articles %}
+
+{% endfor %}
+-->
+<a class="btn btn-warning btn-lg" href="/" role="button">to HOME</a>
+<a class="btn btn-warning btn-lg" href="/articles" role="button">go BACK</a>
+<p></p>
+{% endblock %}

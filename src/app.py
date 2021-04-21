@@ -52,7 +52,7 @@ def articles():
     #articles = Articles()
     return render_template('articles.html',articles = topics)
 
-#INSERT
+#INSE   RT
 @app.route('/add_articles', methods=["GET","POST"])
 def add_articles(): 
     if request.method == "POST": #form으로 부터 메소드 전달.
@@ -78,6 +78,24 @@ def del_articles(id):
     db.commit()
     return redirect("/articles") #삭제 후 돌아가기
 
+#EDIT
+@app.route('/articles/edit/<int:id>', methods=["GET","POST"])
+def edit_article(id):
+    cursor = db.cursor()
+    sql = "SELECT * FROM topic WHERE id = %s;"
+    cursor.execute(sql,id)
+    topic = cursor.fetchone()
+    if request.method == "POST":
+        desc = request.form['Description'] #원하는거
+        title = request.form['Title']
+        input_data = [title,desc,id]
+        sql = "UPDATE topic SET title = %s, body = %s WHERE id = %s"
+        cursor.execute(sql,input_data)
+        db.commit()
+        return redirect("/articles")
+    else:
+        return render_template("edit_article.html",article = topic) #form으로 부터 메소드 전달.
+
 #ARTICLE FROM DATABASE WITH ID
 @app.route('/articles/<int:id>/')
 def article(id):
@@ -91,6 +109,6 @@ def article(id):
     #    if article['id'] == int(id):
     #        return render_template('article.html',article = article)
     return render_template('article.html',article = topic)
- 
+
 if __name__ == '__main__':
     app.run()

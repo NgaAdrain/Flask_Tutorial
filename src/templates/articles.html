@@ -36,7 +36,9 @@
         <td><a>{{ article[3] }}</a></td>
         <td><a>{{ article[4] }}</a></td>
         <td>
-          <button type="button" class = "btn btn-success" href = "/articles/{{article[0]}}">edit</button>
+          <form action="/articles/edit/{{article[0]}}" method="GET">
+            <button type="submit" class = "btn btn-success">EDIT</button>
+          </form>
           <br>
           <br>
           <form action="/del_articles/{{article[0]}}" method="POST" onsubmit="return confirm('삭제 하시겠읍니까?')">
